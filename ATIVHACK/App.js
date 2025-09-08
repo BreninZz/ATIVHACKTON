@@ -69,6 +69,7 @@ const SearchScreen = ({ searchTerm, setSearchTerm, searchBooks, books, isLoading
       <TextInput
         style={styles.searchInput}
         placeholder="Buscar por título, autor ou assunto..."
+        placeholderTextColor="#8D6E63"
         value={searchTerm}
         onChangeText={setSearchTerm}
         onSubmitEditing={() => searchBooks(searchTerm)}
@@ -92,7 +93,7 @@ const SearchScreen = ({ searchTerm, setSearchTerm, searchBooks, books, isLoading
           )}
         />
       )}
-      {isLoading && <ActivityIndicator style={styles.absoluteLoader} size="large" color="#4285F4" />}
+      {isLoading && <ActivityIndicator style={styles.absoluteLoader} size="large" color="#4A332C" />}
     </View>
   );
 };
@@ -159,58 +160,66 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F7F7F7',
+    backgroundColor: '#F8F4E3',
     padding: 20,
     paddingTop: 50,
   },
   header: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#333',
+    fontSize: 34,
+    fontWeight: '900',
+    color: '#4A332C',
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: 30,
+    fontFamily: 'serif',
+    textShadowColor: 'rgba(0, 0, 0, 0.1)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
   },
   searchInput: {
-    height: 50,
-    backgroundColor: '#FFF',
-    borderRadius: 10,
+    height: 55,
+    backgroundColor: '#FFFAF0',
+    borderRadius: 12,
     paddingHorizontal: 15,
-    fontSize: 16,
+    fontSize: 18,
     borderWidth: 1,
-    borderColor: '#E0E0E0',
-    marginBottom: 10,
-  },
-  searchButton: {
-    backgroundColor: '#4285F4',
-    padding: 15,
-    borderRadius: 10,
-    alignItems: 'center',
-    marginBottom: 20,
+    borderColor: '#D7CCC8',
+    marginBottom: 15,
+    color: '#4A332C',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
-    shadowRadius: 3.84,
-    elevation: 5,
+    shadowRadius: 3,
+    elevation: 3,
+  },
+  searchButton: {
+    backgroundColor: '#A0522D',
+    padding: 18,
+    borderRadius: 12,
+    alignItems: 'center',
+    marginBottom: 25,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 8,
   },
   searchButtonText: {
     color: '#FFF',
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
-  },
-  loader: {
-    marginTop: 50,
   },
   absoluteLoader: {
     position: 'absolute',
     top: '50%',
     left: '50%',
-    marginLeft: -15,
-    marginTop: -15,
+    marginLeft: -20,
+    marginTop: -20,
   },
   errorText: {
     textAlign: 'center',
-    color: 'red',
+    color: '#D32F2F',
     marginTop: 20,
+    fontSize: 16,
   },
   listContainer: {
     paddingBottom: 20,
@@ -218,26 +227,28 @@ const styles = StyleSheet.create({
   placeholderText: {
     textAlign: 'center',
     marginTop: 50,
-    color: '#666',
+    color: '#8D6E63',
     fontSize: 16,
   },
   bookItem: {
     flexDirection: 'row',
-    backgroundColor: '#FFF',
-    borderRadius: 10,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 15,
     padding: 15,
-    marginBottom: 10,
+    marginBottom: 15,
     alignItems: 'center',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.05,
-    shadowRadius: 2.22,
-    elevation: 3,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+    elevation: 5,
+    borderLeftWidth: 5,
+    borderLeftColor: '#A0522D',
   },
   bookImage: {
-    width: 64,
-    height: 96,
-    borderRadius: 5,
+    width: 80,
+    height: 120,
+    borderRadius: 8,
     marginRight: 15,
   },
   bookTextContainer: {
@@ -246,63 +257,72 @@ const styles = StyleSheet.create({
   bookTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#4A332C',
   },
   bookAuthors: {
     fontSize: 14,
-    color: '#666',
+    color: '#8D6E63',
+    marginTop: 5,
   },
   detailContainer: {
     flex: 1,
-    backgroundColor: '#F7F7F7',
+    backgroundColor: '#F8F4E3',
   },
   scrollView: {
     padding: 20,
   },
   backButton: {
     padding: 15,
-    backgroundColor: '#F7F7F7',
+    backgroundColor: '#F8F4E3',
     borderBottomWidth: 1,
-    borderBottomColor: '#E0E0E0',
+    borderBottomColor: '#D7CCC8',
   },
   backButtonText: {
     fontSize: 16,
-    color: '#4285F4',
+    color: '#4A332C',
     fontWeight: 'bold',
   },
   detailImage: {
     width: '100%',
-    height: 300,
-    borderRadius: 10,
+    height: 400,
+    borderRadius: 15,
     marginBottom: 20,
     alignSelf: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 10,
   },
   detailTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 5,
+    fontSize: 28,
+    fontWeight: '900',
+    color: '#4A332C',
+    marginBottom: 10,
     textAlign: 'center',
+    fontFamily: 'serif',
   },
   detailAuthors: {
-    fontSize: 18,
-    color: '#666',
-    marginBottom: 10,
+    fontSize: 20,
+    color: '#8D6E63',
+    marginBottom: 15,
     textAlign: 'center',
   },
   detailText: {
     fontSize: 16,
-    marginBottom: 5,
+    marginBottom: 10,
+    color: '#4A332C',
   },
   detailDescriptionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginTop: 15,
+    marginTop: 20,
     marginBottom: 5,
+    color: '#4A332C',
   },
   detailDescription: {
     fontSize: 16,
-    color: '#444',
+    color: '#6D4C41',
     lineHeight: 24,
   },
 });
